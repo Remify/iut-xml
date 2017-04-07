@@ -18,6 +18,57 @@
                 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
                         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
                         crossorigin="anonymous"></script>
+
+                <style>
+                    .color1 {
+                    fill:#cc1f3f;
+                    }
+
+                    .color2 {
+                    fill:;
+                    }
+
+
+                    .color3 {
+                    fill:#7FDBFF;
+                    }
+
+
+                    .color4 {
+                    fill:#39CCCC;
+                    }
+
+
+                    .color5 {
+                    fill:#3D9970;
+                    }
+
+
+                    .color6 {
+                    fill:#2ECC40;
+                    }
+
+
+                    .color7 {
+                    fill:#01FF70;
+                    }
+
+
+                    .color8 {
+                    fill:#FFDC00;
+                    }
+
+
+                    .color9 {
+                    fill:#FF851B;
+                    }
+
+
+                    .color10 {
+                    fill:#FF4136;
+                    }
+
+                </style>
             </head>
             <body>
                 <div class="container">
@@ -73,6 +124,7 @@
                     </xsl:variable>
 
                     <rect stroke="#000" height="25" x="0" stroke-opacity="null" stroke-width="1.5"
+                          class="color{(position())}"
                           fill="#5ad7d2">
 
                         <xsl:attribute name="y">

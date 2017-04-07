@@ -16,6 +16,57 @@
                 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
                       integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
                       crossorigin="anonymous"/>
+
+                <style>
+                    .color1 {
+                    fill:#cc1f3f;
+                    }
+
+                    .color2 {
+                    fill:#FF4136;
+                    }
+
+
+                    .color3 {
+                    fill:#7FDBFF;
+                    }
+
+
+                    .color4 {
+                    fill:#39CCCC;
+                    }
+
+
+                    .color5 {
+                    fill:#3D9970;
+                    }
+
+
+                    .color6 {
+                    fill:#2ECC40;
+                    }
+
+
+                    .color7 {
+                    fill:#01FF70;
+                    }
+
+
+                    .color8 {
+                    fill:#FFDC00;
+                    }
+
+
+                    .color9 {
+                    fill:#FF851B;
+                    }
+
+
+                    .color10 {
+                    fill:#FF4136;
+                    }
+
+                </style>
                 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
                         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
                         crossorigin="anonymous"></script>
@@ -115,10 +166,29 @@
                         <tr>
                             <td colspan="2" style="font-weight:bold;">Langues</td>
                         </tr>
+                        <tr>
+                            <td colspan="2">
+                                <svg height="40px">
+                                    <xsl:for-each select="language">
 
+                                        <xsl:sort select="@percentage" data-type="number" order="ascending"/>
+
+                                        <xsl:variable name="current" select="@percentage"/>
+                                        <xsl:variable name="start"
+                                                      select="(sum(parent::country/language[@percentage &lt; $current]/@percentage) div 100 ) * 300"/>
+                                        <xsl:variable name="width" select="@percentage * 3"/>
+                                        <rect x="{$start}" width="{$width}" height="30px" class="color{(position())}"/>
+
+                                    </xsl:for-each>
+
+
+                                </svg>
+                            </td>
+                        </tr>
                         <xsl:for-each select="language">
 
-                            <xsl:sort select="@percentage" data-type="number" order="descending"/>
+                            <xsl:sort select="@percentage" data-type="number" order="ascending"/>
+
                             <tr>
                                 <td>
 
@@ -127,8 +197,10 @@
 
                                             <rect stroke="#000" height="25" width="100" stroke-opacity="null"
                                                   stroke-width="1.5" fill="#BBBBBB"/>
-                                            <rect stroke="#000" height="25" stroke-opacity="null" stroke-width="1.5"
-                                                  fill="#A0D58A">
+                                            <rect stroke="#000" height="25" stroke-opacity="null"
+                                                  stroke-width="1.5"
+                                                  class="color{(position())}"
+                                            >
                                                 <xsl:attribute name="width">
                                                     <xsl:value-of select="./@percentage"/>
                                                 </xsl:attribute>
@@ -202,6 +274,7 @@
 
 
                                         <rect stroke="#000" height="25" x="0" stroke-opacity="null" stroke-width="1.5"
+                                              class="color{(position())}"
                                               fill="#5ad7d2">
 
                                             <xsl:attribute name="y">
